@@ -7,7 +7,7 @@ TIME_FORMAT = '%Y-%m-%d %H:%M:%S'
 ALEXA_TIME_FORMAT = '%Y-%m-%d'
 
 
-def parse_date(dt_string, alexa=False):
+def parse_date_string(dt_string, alexa=False):
     """Parse the date string from the database into a `datetime` object.
 
     :param date_string: the raw date string to parse
@@ -17,6 +17,14 @@ def parse_date(dt_string, alexa=False):
         return datetime.datetime.strptime(dt_string, ALEXA_TIME_FORMAT).replace(tzinfo=pytz.utc)
     else:
         return datetime.datetime.strptime(dt_string, TIME_FORMAT).replace(tzinfo=pytz.utc)
+
+def dt_tzinfo_utc(dt):
+    """Parse the date string from the database into a `datetime` object.
+
+    :param date_string: the raw date string to parse
+    :returns: the `datetime` version of the given date string
+    """
+    return dt.replace(tzinfo=pytz.utc)
 
 def now():
     """Parse the date string from the database into a `datetime` object.

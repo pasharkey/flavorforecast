@@ -5,50 +5,54 @@ import response
 import time_util
 import humanize
 import pytz
+from collections import namedtuple
 from dateutil import tz
 
 from dateutil.relativedelta import relativedelta
 from bs4 import BeautifulSoup
 
 
-def _build_params(dt_obj):
-    """Parse the date string from the database intoa `datetime` object.
+def _build_params(dt):
+    """Takes a date and builds the parameters needed to scrape the dgm website.
 
-    :param date_string: the raw date string to parse
-    :returns: the `datetime` version of the given date string
+    :param dt: the `datetime` object
+    :returns: the `params` that contain the needed api information
     """
-    params = (('yr', dt_obj.year),
-              ('month', dt_obj.month),
-              ('dy', dt_obj.day),
+    params = (('yr', dt.year),
+              ('month', dt.month),
+              ('dy', dt.day),
               ('cid', 'mc-0191cbfb6d82b4fdb92b8847a2046366'))
     return params
 
 
-def _build_flavor_forecast(flavors, dt_obj):
-    """Takes a date and checks the flavor forecast for that date
+def _build_flavor_forecast(flavors, dt):
+    """Takes the flavors array and the searched date and builds a result object
+    with containing the flavor forecast information
 
-    :param date: the string date passed from Alexa
-    :returns: the speech output of the flavor or errors for the date requested
+    :param flavors: the array of flavors
+    :param dt: the `datetime` object
+    :returns: a `Result `namedtuple` holding the results
 
     """
 
-    # declare the speech output as error in case it does not get updated
-    forecast = response.msg.get(300)
-
+    # check the lengh and build the `Result` object
     if len(flavors) < 1:
-        forecast = response.msg.get(101).format(humanize.naturaldate(dt_obj))
+        return _build_result(False, None, dt, 0, False, False, None)
     elif len(flavors) == 1:
-        forecast = response.msg.get(200).format(
-            humanize.naturaldate(dt_obj), flavors[0])
+        return _build_result(True, flavors, dt, 1, False, False, None)
     else:
-        forecast = response.msg.get(200).format(
-            humanize.naturaldate(dt_obj), (' and '.join(flavors)))
-
-    return forecast
+        return _build_result(True, flavors, dt, len(flavors), False, False, None)
 
 
 def _is_closed(dt):
+    """Takes a date and determines if the dairy godmother is closed at that time
+
+    :param dt_obj: the `datetime` object
+    :returns: a `Status `namedtuple` holding the open or closed status of the store
+
+    """
     '''
+
     All dates are converted to UTC to remove any local or native timestamps
     due to where the skill is being run. 
 
@@ -61,26 +65,20 @@ def _is_closed(dt):
                      S  00:00 - 02:00, 16:00 - 24:00 
                      Su 00:00 - 02:00, 16:00 - 24:00
     '''
-
-    # declare the tuple that will store the information
-    status_tuple = ()
-
     if((dt.isoweekday() in [1, 4, 5, 6, 7]) and (dt.hour in range(2, 16))):
-        status_tuple = (True, time_util.humanize_time(_seconds_until_open(dt)))
+        return _build_status(False, True, dt, False, None)
     elif((dt.isoweekday() in [2, 3]) and (dt.hour in range(1, 16))):
-        status_tuple = (True, time_util.humanize_time(_seconds_until_open(dt)))
+        return _build_status(False, True, dt, False, None)
     else:
-        status_tuple = (False, time_util.humanize_time(
-            _seconds_until_close(dt)))
-
-    return status_tuple
+        return _build_status(True, False, dt, False, None)
 
 
 def _seconds_until_open(dt):
-    """Takes a date and checks the flavor forecast for that date
+    """Takes a date and calculates the number of seconds until the dairy godmother
+    opens
 
-    :param date: the string date passed from Alexa
-    :returns: the speech output of the flavor or errors for the date requested
+    :param date: the date to calculate against
+    :returns: the number of seconds until the dairy godmother opens
 
     """
     dt_open = time_util.build_time(dt.year, dt.month, dt.day, 16, 00, 00)
@@ -88,10 +86,11 @@ def _seconds_until_open(dt):
 
 
 def _seconds_until_close(dt):
-    """Takes a date and checks the flavor forecast for that date
+    """Takes a date and calculates the number of seconds until the dairy godmother
+    closes
 
-    :param date: the string date passed from Alexa
-    :returns: the speech output of the flavor or errors for the date requested
+    :param date: the date to calculate against
+    :returns: the number of seconds until the dairy godmother closes
 
     """
     if((dt.isoweekday() in [1, 2]) and (dt.hour in range(16, 24))):
@@ -109,6 +108,53 @@ def _seconds_until_close(dt):
         return (dt_close - dt).seconds
 
 
+def _build_result(found, flavors, date, size, closed, has_error, error):
+    """Takes a date and calculates the number of seconds until the dairy godmother
+    closes
+
+    :param date: the date to calculate against
+    :returns: the number of seconds until the dairy godmother closes
+
+    """
+    return Result(found=found, flavors=flavors, date=date, humanized_date=humanize.naturaldate(date),
+                  size=size, closed=closed, has_error=has_error, error=error)
+
+
+def _build_status(is_open, is_closed, date, has_error, error):
+    """Takes a date and calculates the number of seconds until the dairy godmother
+    closes
+
+    :param date: the date to calculate against
+    :returns: the number of seconds until the dairy godmother closes
+
+    """
+    if(is_open):
+        return Status(is_open=is_open, is_closed=is_closed, date=date,
+                  time_left=time_util.humanize_time(_seconds_until_close(date)), has_error=has_error, error=error)
+    else:
+        return Status(is_open=is_open, is_closed=is_closed, date=date,
+                  time_left=time_util.humanize_time(_seconds_until_open(date)), has_error=has_error, error=error)
+
+
+def _build_hours(open_str, close_str, date):
+    """Takes a date and calculates the number of seconds until the dairy godmother
+    closes
+
+    :param date: the date to calculate against
+    :returns: the number of seconds until the dairy godmother closes
+
+    """
+    return Hours(open_str=open_str, close_str=close_str, date=date, humanized_date=humanize.naturaldate(date))
+
+# Create objects to store the results for a search and the status of the
+# store being open or closed
+Result = namedtuple('Result', [
+                    'found', 'flavors', 'date', 'humanized_date', 'size', 'closed', 'has_error', 'error'])
+Status = namedtuple('Status', ['is_open', 'is_closed',
+                               'date', 'time_left', 'has_error', 'error'])
+Hours = namedtuple('Hours', ['open_str', 'close_str', 'date', 'humanized_date'])
+
+
 class DGMApi(object):
     """Class to facilitate interaction."""
 
@@ -119,112 +165,44 @@ class DGMApi(object):
         """
         self.url = 'http://www.TheDairyGodmother.com/flavor-of-the-day-forecast/'
 
-    def operating_hours(self, raw_date):
-        """Search the API for the given title.
+    def operating_hours(self, dt):
+        """Takes a date and determines the operating hours of the store
 
-        :param raw_title: the raw spoken title string to search four
-        :returns: the best match from the API given the params
+        :param dt: the `datetime` to check store hours for
+        :returns: a `Hours` `namedtuple` with hours information
 
         """
-        dt = time_util.parse_date(raw_date)
-
         if dt.isoweekday() in range(1, 2):
-            return response.msg.get(403).format(humanize.naturaldate(dt))
+            return _build_hours('12 PM', '10 PM', dt)
         else:
-            return response.msg.get(404).format(humanize.naturaldate(dt))
+            return _build_hours('12 PM', '11 PM', dt)
 
-    def open_now(self):
-        """Search the API for the given title.
+    def get_status(self):
+        """Determines if the store is currently closed
 
-        :param raw_title: the raw spoken title string to search four
-        :returns: the best match from the API given the params
+        :returns: a `Status `namedtuple` holding the open or closed status of the store
 
         """
         dt = time_util.now()
+        return _is_closed(dt)
 
-        # check if open now
-        result = _is_closed(dt)
-        if(not result[0]):
-            return "Yes, " + response.msg.get(401).format(result[1])
-        else:
-            return "No, " + response.msg.get(402).format(result[1])
+    def search(self, dt):
+        """Search the flavor of the day based on the date
 
-    def closed_now(self):
-        """Search the API for the given title.
-
-        :param raw_title: the raw spoken title string to search four
-        :returns: the best match from the API given the params
-
-        """
-        dt = time_util.now()
-
-        # check if open now
-        result = _is_closed(dt)
-        if(result[0]):
-            return "Yes, " + response.msg.get(402).format(result[1])
-        else:
-            return "No, " + response.msg.get(401).format(result[1])
-
-    def time_until_open(self):
-        """Search the API for the given title.
-
-        :param raw_title: the raw spoken title string to search four
-        :returns: the best match from the API given the params
-
-        """
-        dt = time_util.now()
-        result = _is_closed(dt)
-
-        if(result[0]):
-            return response.msg.get(400).format(result[1])
-        else:
-            return response.msg.get(401).format(result[1])
-
-    def time_until_closed(self):
-        """Search the API for the given title.
-
-        :param raw_title: the raw spoken title string to search four
-        :returns: the best match from the API given the params
-
-        """
-        dt = time_util.now()
-        result = _is_closed(dt)
-
-        if(not result[0]):
-            return response.msg.get(401).format(result[1])
-        else:
-            return response.msg.get(400).format(result[1])
-
-    def location(self):
-        """Search the API for the given title.
-
-        :param raw_title: the raw spoken title string to search four
-        :returns: the best match from the API given the params
-
-        """
-        return response.msg.get(500)
-
-    def search(self, raw_date):
-        """Search the API for the given title.
-
-        :param raw_title: the raw spoken title string to search four
-        :returns: the best match from the API given the params
+        :param dt: the `datetime` to search for
+        :returns: a `Result `namedtuple` holding the flavor forecast results
 
         """
 
-        # perform search based on the passed in raw_date
+        # perform search based on the passed in date
         try:
-            print("Searching for flavor of the day for {}".format(raw_date))
+            print("Searching for flavor of the day for {}".format(dt))
 
-            # create date objects and build params
-            dt = time_util.parse_date(raw_date, True)
-
+            # build the params to scrap dgm webpage
             params = _build_params(dt)
 
             req = requests.get(self.url, params=params)
-
             print("sending request to {}".format(req.url))
-
             soup = BeautifulSoup(req.text, 'html.parser')
 
             # find the <td> with the specified date
@@ -245,14 +223,18 @@ class DGMApi(object):
 
                 # ensure that it is not closed on this day
                 if any('closed' in f.lower() for f in flavors):
-                    return response.msg.get(100)
+                    return _build_result(False, None, dt, 0, True, False, None)
 
+                # build the flavor forecast result
                 return _build_flavor_forecast(flavors, dt)
 
+            # check for no results or html error
+            elif len(results) < 1:
+                return _build_result(False, None, dt, 0, False, False, None)
             else:
-                return response.msg.get(101).format(humanize.naturaldate(dt))
-
-        except ValueError:
-            return response.msg.get(300)
-
-        return response.msg.get(300)
+                return _build_result(False, None, dt, 0, False, True,
+                    'More than one table cell event summary with id of calendar-' + 
+                       time_util.stringify_date(dt) + 'found.')
+        except:
+            return _build_result(False, None, dt, 0, False, True,
+                    'An exception occured when performing a flavor forecase search.')
