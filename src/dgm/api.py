@@ -186,6 +186,15 @@ class DGMApi(object):
         dt = time_util.now()
         return _is_closed(dt)
 
+    def get_status(self, dt):
+        """Determines if the store is currently closed
+
+        :param dt: the `datetime` to check status for
+        :returns: a `Status `namedtuple` holding the open or closed status of the store
+
+        """
+        return _is_closed(dt)
+
     def search(self, dt):
         """Search the flavor of the day based on the date
 
@@ -219,7 +228,10 @@ class DGMApi(object):
 
                 # clean up the summary
                 for summary in event_summary:
-                    flavors.append(summary.text.split('-')[0].split('(')[0])
+                    flavors.append((summary.text.split('-')[0].split('(')[0]).strip())
+
+                # make sure the strings are encoded 
+                flavors = [x.encode('UTF8') for x in flavors]
 
                 # ensure that it is not closed on this day
                 if any('closed' in f.lower() for f in flavors):
