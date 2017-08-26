@@ -27,6 +27,10 @@ print "date paren:", flavor_forecast.search(date_multi)
 # get the current status
 print(flavor_forecast.get_status())
 
+# date 03-25-2017 has `Banana Pudding` twice in the result
+date_now = datetime.datetime.now()
+print "date NOW:", flavor_forecast.search(date_now)
+
 #print(flavor_forecast.operating_hours(datetime.datetime.now()))
 
 #print(flavor_forecast.closed_now())

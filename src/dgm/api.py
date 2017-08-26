@@ -129,10 +129,10 @@ def _build_status(is_open, is_closed, date, has_error, error):
 
     """
     if(is_open):
-        return Status(is_open=is_open, is_closed=is_closed, date=date,
+        return Status(is_open=is_open, is_closed=is_closed, date=date, humanized_date=humanize.naturaldate(date),
                   time_left=time_util.humanize_time(_seconds_until_close(date)), has_error=has_error, error=error)
     else:
-        return Status(is_open=is_open, is_closed=is_closed, date=date,
+        return Status(is_open=is_open, is_closed=is_closed, date=date, humanized_date=humanize.naturaldate(date),
                   time_left=time_util.humanize_time(_seconds_until_open(date)), has_error=has_error, error=error)
 
 
@@ -151,7 +151,7 @@ def _build_hours(open_str, close_str, date):
 Result = namedtuple('Result', [
                     'found', 'flavors', 'date', 'humanized_date', 'size', 'closed', 'has_error', 'error'])
 Status = namedtuple('Status', ['is_open', 'is_closed',
-                               'date', 'time_left', 'has_error', 'error'])
+                               'date', 'humanized_date', 'time_left', 'has_error', 'error'])
 Hours = namedtuple('Hours', ['open_str', 'close_str', 'date', 'humanized_date'])
 
 
@@ -186,7 +186,7 @@ class DGMApi(object):
         dt = time_util.now()
         return _is_closed(dt)
 
-    def get_status(self, dt):
+    def get_status_on_date(self, dt):
         """Determines if the store is currently closed
 
         :param dt: the `datetime` to check status for
@@ -249,4 +249,4 @@ class DGMApi(object):
                        time_util.stringify_date(dt) + 'found.')
         except:
             return _build_result(False, None, dt, 0, False, True,
-                    'An exception occured when performing a flavor forecase search.')
+                    'An exception occured when performing a flavor forecast search.')
