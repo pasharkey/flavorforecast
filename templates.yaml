@@ -1,15 +1,18 @@
 
 greeting: Welcome to The Diary Godmother flavor forecast. What would you like to know about?
 
-reprompt: With flavor forecast, you can find out more about The Dairy Godmother. For example, you can ask "What is the flavor forecast today"?
+reprompt: With flavor forecast, you can find out more about The Dairy Godmother. For example, you can ask "What is the flavor forecast for today"?
   What would you like to search?
 
 repeatdate: Can you please repeat the date?
 nodate: I did not hear a date. Can you please repeat the date?
 
 found: The falvor forecast for {{ date }} is {{ flavors }}.
-#notfound: I could not locate any flavors in the forecast for {{ date }}. My apologies!
-#notfoundclosed: Sorry, There is no flavor forecast for {{ date }} because The Dairy Godmother is closed.
+notfound: I could not locate any flavors in the forecast for {{ date }}. My apologies!
+notfoundclosed: There is not flavor forecast because The Dairy Godmother is closed on {{ date }}.
+
+searcherror: An occured when performing a flavor forecast search for {{ date }}. Can you please repeat the question?
+
 #notfoundclosedpast: Sorry, There was no flavor forecast for {{ date }} because The Dairy Godmother was closed.
 #notfoundclosedfuture: Sorry, There is no flavor forecast for {{ date }} because The Dairy Godmother will be closed.
 
@@ -27,6 +30,6 @@ found: The falvor forecast for {{ date }} is {{ flavors }}.
 #timeuntilopen: The Dairy Godmother will open in {{ time }}.
 #timeuntilclose: The Diary Godmother will close in {{ time }}.
 
-#searcherror: An occured when performing a flavor forecast search for {{ date }}. Can you please repeat the question?
+
 
 #location: The Dairy Godmother is located at 2310 Mount Vernon Ave., Alexandria, VA 22301.
