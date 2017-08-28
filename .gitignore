@@ -97,3 +97,6 @@ ENV/
 
 # mypy
 .mypy_cache/
+
+# zappa ignore
+.libs_cffi_backend/
