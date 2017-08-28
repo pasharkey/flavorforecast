@@ -26,7 +26,7 @@ def launch():
 
 @ask.intent('GetSearchDateIntent', convert={'date': 'date'})
 def search_date(date):
-    """The default intent to be triggered. Uses the title to search the GB API.
+    """The default intent to be triggered. Uses the date to search the DGM API.
     :param date: the date to search for the flavor of the day
     :returns: a `flask-ask.statement` result with the given template text
     """
@@ -48,7 +48,8 @@ def search_date(date):
 
 @ask.intent('GetSearchIntent')
 def search():
-    """The default intent to be triggered. Uses the title to search the GB API.
+    """The search for current day intent to be triggered. Uses the title to search 
+    the DGM API.
     :param date: the date to search for the flavor of the day
     :returns: a `flask-ask.statement` result with the given template text
     """
@@ -59,8 +60,8 @@ def search():
 
 
 def _search(result):
-    """The default intent to be triggered. Uses the title to search the GB API.
-    :param date: the date to search for the flavor of the day
+    """Helper method for both the `GetSearchDateIntent` and the `GetSearchIntent`. 
+    Will take the search results and format them into an appropriate `flask-ask.statement`.
     :returns: a `flask-ask.statement` result with the given template text
     """
 
@@ -76,27 +77,17 @@ def _search(result):
         else:
             flavor_text = ('and ').join(result.flavors)
 
-        found_text = render_template('found', date=result.date, flavors=flavor_text)
+        found_text = render_template(
+            'found', date=result.date, flavors=flavor_text)
         return statement(found_text)
     else:
         # check if store closed
         if(result.closed):
-            # check if th date was for current day or past/future
-            if(result.date.today == datetime.datetime.now().today):
-                closed_text = render_template(
-                    'notfoundclosed', date=result.date, flavors=flavor_text)
-                return statement(closed_text)
-            elif(result.date.today > datetime.datetime.now().today):
-                closed_text = render_template(
-                    'notfoundclosedfuture', date=result.date, flavors=flavor_text)
-                return statement(closed_text)
-            else:
-                closed_text = render_template(
-                    'notfoundclosedpast', date=result.date, flavors=flavor_text)
-                return statement(closed_text)
+            closed_text = render_template(
+                'notfoundclosed', date=result.date, flavors=flavor_text)
+            return statement(closed_text)
         else:
-            notfound_text = render_template(
-                'notfound', date=result.date)
+            notfound_text = render_template('notfound', date=result.date)
             return statement(notfound_text)
 
 
