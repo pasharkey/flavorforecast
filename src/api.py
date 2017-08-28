@@ -1,7 +1,6 @@
 """Interact with The Diary Godmother webpage."""
 import datetime
 import requests
-import response
 import time_util
 import humanize
 import pytz

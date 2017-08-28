@@ -1,0 +1,8 @@
+{
+    "dev": {
+        "app_function": "src.skill.app", 
+        "aws_region": "us-east-1", 
+        "profile_name": "shark", 
+        "s3_bucket": "flavorforecast",
+    }
+}

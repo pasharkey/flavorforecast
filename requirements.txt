@@ -5,3 +5,5 @@ python-dateutil==2.6.1
 pytz==2017.2
 Flask==0.12
 Flask-Ask==0.9.7
+zappa==0.43.2
+awscli==1.11.141

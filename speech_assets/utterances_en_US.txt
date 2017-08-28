@@ -1,0 +1,139 @@
+AboutIntent who wrote this app
+AboutIntent who wrote this application
+AboutIntent who is the author of this skill
+AboutIntent who is the author of this application
+AboutIntent who is the author of this app
+
+GetSearchDateIntent what is the flavor forecast for {date}
+GetSearchDateIntent what is the forecast for {date}
+GetSearchDateIntent what is the flavor for {date}
+GetSearchDateIntent what is the flavor on {date}
+GetSearchDateIntent what will the flavor be on {date}
+GetSearchDateIntent what will the forecast be on {date}
+GetSearchDateIntent what was the flavor forecast on {date}
+GetSearchDateIntent for the forecast on {date}
+GetSearchDateIntent for the flavor {date}
+GetSearchDateIntent was there a falavor forecast on {date}
+GetSearchDateIntent was there a falavor forecast {date}
+GetSearchDateIntent was there a flavor for {date}
+GetSearchDateIntent was there a flavor on {date}
+GetSearchDateIntent was there a flavor {date}
+
+GetSearchIntent for the forecast
+GetSearchIntent for the flavor 
+GetSearchIntent flavor forecast
+
+GetOpenIntent are you open
+GetOpenIntent is the dairy godmother open
+GetOpenIntent is the store open
+
+GetOpenDateIntent are you open today
+GetOpenDateIntent are you open now
+GetOpenDateIntent are you closed on today
+GetOpenDateIntent are you closed now
+
+GetOpenDateIntent is the dairy godmother open {date}
+GetOpenDateIntent is the dairy godmother open on {date}
+GetOpenDateIntent was the dairy godmother open on {date}
+GetOpenDateIntent was the dairy godmother open {date}
+GetOpenDateIntent will the dairy godmother be open on {date}
+GetOpenDateIntent will the dairy godmother be open {date}
+GetOpenDateIntent will the dairy godmother open on {date}
+GetOpenDateIntent will the dairy godmother open {date}
+
+GetClosedIntent are you closed
+GetClosedIntent is the diary godmother closed
+GetClosedIntent is the store closed
+
+GetClosedDateIntent are you closed {date}
+GetClosedDateIntent are you closed on {date}
+GetClosedDateIntent is the diary godmother closed {date}
+GetClosedDateIntent is the dairy godmother closed on {date}
+GetClosedDateIntent was the diary godmother closed on {date}
+GetClosedDateIntent was the dairy godmother closed {date}
+GetClosedDateIntent will the dairy godmother be closed on {date}
+GetClosedDateIntent will the dairy godmother be closed {date}
+GetClosedDateIntent will the dairy godmother close on {date}
+GetClosedDateIntent will the dairy godmother close {date}
+GetClosedDateIntent will there be a flavor forecast on {date}
+GetClosedDateIntent will there be a flavor forecast {date}
+GetClosedDateIntent will there be a forecast on {date}
+GetClosedDateIntent will there be a forecast {date}
+
+GetTimeUntilOpenIntent how much longer until you open
+GetTimeUntilOpenIntent how much longer until the store opens
+GetTimeUntilOpenIntent how much longer until the store opens today
+GetTimeUntilOpenIntent how much longer until opening
+GetTimeUntilOpenIntent how much longer is the dairy godmother open for
+GetTimeUntilOpenIntent how much longer is the store open for
+GetTimeUntilOpenIntent how much longer are you open
+GetTimeUntilOpenIntent how much longer are you open today
+GetTimeUntilOpenIntent how much longer is there until you open
+GetTimeUntilOpenIntent how much longer is there until opening
+GetTimeUntilOpenIntent how much longer are you open
+GetTimeUntilOpenIntent how much longer are you open for
+GetTimeUntilOpenIntent how much longer are you open for today
+
+GetTimeUntilCloseIntent how much longer until you close
+GetTimeUntilCloseIntent how much longer until the store closes
+GetTimeUntilCloseIntent how much longer until the store closes today
+GetTimeUntilCloseIntent how much longer until closing
+GetTimeUntilCloseIntent how much longer is the dairy godmother closed for
+GetTimeUntilCloseIntent how much longer is the store closed for
+GetTimeUntilCloseIntent how much longer are you closed
+GetTimeUntilCloseIntent how much longer are you closed today
+GetTimeUntilCloseIntent how much longer is there until you close
+GetTimeUntilCloseIntent how much longer is there until closing
+GetTimeUntilCloseIntent how much longer are you closed
+GetTimeUntilCloseIntent how much longer are you closed for
+GetTimeUntilCloseIntent how much longer are you closed for today
+
+GetHoursIntent what are your hours
+GetHoursIntent what are the hours
+GetHoursIntent what are the dairy godmother's hours
+GetHoursIntent what are the hours of the store
+GetHoursIntent what are the hours of the dairy godmother
+GetHoursIntent when will you close
+GetHoursIntent when will you be closing
+GetHoursIntent when is closing
+GetHoursIntent when do you close
+GetHoursIntent when will you open
+GetHoursIntent when will you be opening
+
+GetHoursForDayIntent what are your hours {date}
+GetHoursForDayIntent what are the hours {date}
+GetHoursForDayIntent what are your hours on {date}
+GetHoursForDayIntent what are the hours on {date}
+GetHoursForDayIntent when will you be closing on {date}
+GetHoursForDayIntent when will you close {date}
+GetHoursForDayIntent when will you close on {date}
+GetHoursForDayIntent when will you close {date}
+GetHoursForDayIntent when will you be closing {date}
+GetHoursForDayIntent when will closing be on {date}
+GetHoursForDayIntent when will clsoing be {date}
+GetHoursForDayIntent when is closing on {date}
+GetHoursForDayIntent when is closing {date}
+GetHoursForDayIntent when is the store closing on {date}
+GetHoursForDayIntent when is the storey closing {date}
+GetHoursForDayIntent when is the dairy godmother closing on {date}
+GetHoursForDayIntent when is the dairy godmother closing {date}
+GetHoursForDayIntent when will you be opening on {date}
+GetHoursForDayIntent when will you open {date}
+GetHoursForDayIntent when will you open on {date}
+GetHoursForDayIntent when will you open {date}
+GetHoursForDayIntent when will you be opening {date}
+GetHoursForDayIntent when will opening be on {date}
+GetHoursForDayIntent when will opening be {date}
+GetHoursForDayIntent when is opening on {date}
+GetHoursForDayIntent when is opening {date}
+GetHoursForDayIntent when is the store opening on {date}
+GetHoursForDayIntent when is the store opening {date}
+GetHoursForDayIntent when is the dairygodmother opening on {date}
+GetHoursForDayIntent when is the dairygodmother opening {date}
+
+
+
+
+
+
+
