@@ -4,13 +4,34 @@
       "intent": "GetSearchIntent"
     },
     {
-      "intent": "GetSearchDateIntent",
       "slots": [
-          {
-            "name": "date",
-            "type": "AMAZON.DATE"
-          }
-        ]
+        {
+          "name": "date",
+          "type": "AMAZON.DATE"
+        }
+      ],
+      "intent": "GetSearchDateIntent"
+    },
+    {
+      "intent": "GetOpenIntent"
+    },
+    {
+      "slots": [
+        {
+          "name": "date",
+          "type": "AMAZON.DATE"
+        }
+      ],
+      "intent": "GetOpenDateIntent"
+    },
+    {
+      "intent": "GetClosedIntent"
+    },
+    {
+      "intent": "GetHoursIntent"
+    },
+    {
+      "intent": "GetAboutIntent"
     },
     {
       "intent": "AMAZON.HelpIntent"

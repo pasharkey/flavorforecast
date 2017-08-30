@@ -1,0 +1,22 @@
+
+greeting: Welcome to The Dairy Godmother flavor forecast. What would you like to know about?
+
+reprompt: With flavor forecast, you can find out more about The Dairy Godmother. For example, you can ask "What is the flavor forecast for today?
+  What would you like to search?
+
+repeatdate: Can you please repeat the date?
+nodate: Sorry, I did not hear a date. Can you please repeat the date?
+
+found: The flavor forecast for {{ date }} is {{ flavors }}.
+notfound: Sorry, there are no flavors in the forecast for {{ date }}. 
+notfoundclosed: Sorry, there is no flavor forecast because The Dairy Godmother is closed on {{ date }}.
+
+opennow:  The Dairy Godmother is currently open for another {{ time }}.
+closednow: The Dairy Godmother is closed for another {{ time }}.
+
+opendate:  The Dairy Godmother is open {{ date }} from {{ start }} to {{ end }} Eastern Standard Time.
+closeddate:  The Dairy Godmother is closed on {{ date }}.
+hours:  The Dairy Godmother is open from 12 PM to 9 PM Monday and Tuesday, and from 12 PM to 10 PM Wednesday, Thursday, Friday, Saturday, and Sunday unless otherwise specified on our flavor forecast calendar.
+location: The Dairy Godmother is located at 2310 Mount Vernon Ave., Alexandria, VA 22301.
+
+about: This app was created by Del Ray native and Dairy Godmother connoisseur, Patrick Sharkey

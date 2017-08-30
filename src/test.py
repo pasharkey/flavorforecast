@@ -1,11 +1,8 @@
-from dgm import api
+import api
 import datetime
 import skill
 
 flavor_forecast = api.DGMApi()
-
-print skill.search()
-
 
 # # date 05-29-2017 has a `-` in the result
 # date_dash = datetime.datetime.strptime('2017-05-29', '%Y-%m-%d')
@@ -26,6 +23,10 @@ print skill.search()
 # # date 03-25-2017 has `Banana Pudding` twice in the result
 # date_multi = datetime.datetime.strptime('2017-03-25', '%Y-%m-%d')
 # print "date paren:", flavor_forecast.search(date_multi)
+
+# # date 03-25-2017 has `Banana Pudding` twice in the result
+date_multi = datetime.datetime.strptime('1977-03-25', '%Y-%m-%d')
+print "date paren:", flavor_forecast.search(date_multi)
 
 # # get the current status
 # print(flavor_forecast.get_status())

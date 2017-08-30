@@ -115,7 +115,7 @@ def _build_result(found, flavors, date, size, closed, has_error, error):
     :returns: the number of seconds until the dairy godmother closes
 
     """
-    return Result(found=found, flavors=flavors, date=date, humanized_date=humanize.naturaldate(date),
+    return Result(found=found, flavors=flavors, date=time_util.stringify_date(date), humanized_date=humanize.naturaldate(date),
                   size=size, closed=closed, has_error=has_error, error=error)
 
 
