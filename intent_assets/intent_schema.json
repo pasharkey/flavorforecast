@@ -31,6 +31,9 @@
       "intent": "GetHoursIntent"
     },
     {
+      "intent": "GetLocationIntent"
+    },
+    {
       "intent": "GetAboutIntent"
     },
     {

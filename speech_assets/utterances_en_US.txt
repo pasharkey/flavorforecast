@@ -111,6 +111,20 @@ GetHoursIntent when will you be opening
 GetHoursIntent when will the store be opening
 GetHoursIntent when will the store open 
 
+GetLocationIntent where is the dairy godmother located
+GetLocationIntent where is store location located
+GetLocationIntent what is the location of the dairy godmother
+GetLocationIntent where can I find the dairy godmother
+GetLocationIntent located
+GetLocationIntent what is the address
+GetLocationIntent what is your address
+GetLocationIntent address
+GetLocationIntent where are you located
+GetLocationIntent where is the store located
+GetLocationIntent where is your location
+GetLocationIntent what is the stores location
+GetLocationIntent what is the location of the store
+
 
 
 

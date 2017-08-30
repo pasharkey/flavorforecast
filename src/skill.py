@@ -181,8 +181,7 @@ def location():
 
 @ask.intent('GetAboutIntent')
 def hours():
-    """The default intent to be triggered. Uses the title to search the GB API.
-    :param date: the date to search for the flavor of the day
+    """Give the user information about the creator of this skill.
     :returns: a `flask-ask.statement` result with the given template text
     """
 
