@@ -1,5 +1,5 @@
 # Flavor Forecast
-An Amazon Alexa skill developed in Python which scrapes the flavor of the day information from The Dairy Godmother [flavor forecast calendar](http://www.thedairygodmother.com/flavor-of-the-day-forecast/). 
+An Amazon Alexa skill developed in Python which queries the flavor of the day information from The Dairy Godmother [flavor forecast calendar](http://www.thedairygodmother.com/flavor-of-the-day-forecast/). 
 
 Certified and available on the Alexa skill storefront:
 TBD
@@ -7,7 +7,7 @@ TBD
 ### Examples
     "Alexa, ask Flavor Forecast what the flavor forecast is today?"
     "Alexa, ask Flavor Forecast for the flavor of the day on August 21, 2017"
-    "Alexa, ask Flavor Forecast is the The Dairy Godmother open?""
+    "Alexa, ask Flavor Forecast is the The Dairy Godmother open?"
     
 
 ### Requirements
