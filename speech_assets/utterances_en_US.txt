@@ -1,37 +1,5 @@
-GetAboutIntent who wrote this
-GetAboutIntent who wrote this app
-GetAboutIntent who wrote this application
-GetAboutIntent who is the author of this skill
-GetAboutIntent who is the author of this application
-GetAboutIntent who is the author of this app
-GetAboutIntent who is the author
-GetAboutIntent author
-GetAboutIntent who created this
-GetAboutIntent who created this app
-GetAboutIntent who created this application
-
-GetSearchDateIntent what is the flavor forecast for {date}
-GetSearchDateIntent what is the forecast for {date}
-GetSearchDateIntent what is the flavor for {date}
-GetSearchDateIntent what is the flavor on {date}
-GetSearchDateIntent for the forecast on {date}
-GetSearchDateIntent for the flavor {date}
-GetSearchDateIntent was there a falavor forecast on {date}
-GetSearchDateIntent was there a falavor forecast {date}
-GetSearchDateIntent was there a flavor for {date}
-GetSearchDateIntent was there a flavor on {date}
-GetSearchDateIntent was there a flavor {date}
-GetSearchDateIntent what the flavor forecast is for {date}
-GetSearchDateIntent what the flavor is for {date}
-GetSearchDateIntent what will the flavor be on {date}
-GetSearchDateIntent what will the forecast be on {date}
-GetSearchDateIntent what will the flavor forecast be on {date}
-GetSearchDateIntent what was the flavor of the day on {date}
-GetSearchDateIntent what was the flavor of the day for {date}
-GetSearchDateIntent what was the flavor forecast on {date}
-
 GetSearchIntent for the forecast
-GetSearchIntent for the flavor 
+GetSearchIntent for the flavor
 GetSearchIntent for the flavor forecast
 GetSearchIntent flavor forecast
 GetSearchIntent what is the flavor forecast
@@ -41,19 +9,36 @@ GetSearchIntent flavor
 GetSearchIntent what is the flavor of the day
 GetSearchIntent for the flavor of the day
 GetSearchIntent flavor of the day
-
+GetSearchDateIntent what is the flavor forecast for {date}
+GetSearchDateIntent what is the forecast for {date}
+GetSearchDateIntent what is the flavor for {date}
+GetSearchDateIntent what is the flavor on {date}
+GetSearchDateIntent for the forecast on {date}
+GetSearchDateIntent for the forecast {date}
+GetSearchDateIntent for the flavor forecast {date}
+GetSearchDateIntent for the flavor forecast on {date}
+GetSearchDateIntent for the flavor {date}
+GetSearchDateIntent for the flavor on {date}
+GetSearchDateIntent for the flavor of the day on {date}
+GetSearchDateIntent was there a falavor forecast on {date}
+GetSearchDateIntent was there a falavor forecast {date}
+GetSearchDateIntent was there a flavor for {date}
+GetSearchDateIntent was there a flavor on {date}
+GetSearchDateIntent was there a flavor {date}
+GetSearchDateIntent what the flavor forecast is for {date}
+GetSearchDateIntent what the flavor is for {date}
+GetSearchDateIntent what the flavor forecast is {date}
+GetSearchDateIntent what will the flavor be on {date}
+GetSearchDateIntent what will the forecast be on {date}
+GetSearchDateIntent what will the flavor forecast be on {date}
+GetSearchDateIntent what was the flavor of the day on {date}
+GetSearchDateIntent what was the flavor of the day for {date}
+GetSearchDateIntent what was the flavor forecast on {date}
 GetOpenIntent are you open
 GetOpenIntent is the dairy godmother open
 GetOpenIntent is the store open
 GetOpenIntent is open
-GetOpenInetne open
-
-GetClosedIntent are you closed
-GetClosedIntent is the diary godmother closed
-GetClosedIntent is the store closed
-GetClosedIntetn is closed
-GetClosedIntent closed
-
+GetOpenIntent open
 GetOpenDateIntent are you open {date}
 GetOpenDateIntent are you on {date}
 GetOpenDateIntent were you open on {date}
@@ -94,7 +79,11 @@ GetOpenDateIntent will there be a flavor forecast on {date}
 GetOpenDateIntent will there be a flavor forecast {date}
 GetOpenDateIntent will there be a forecast on {date}
 GetOpenDateIntent will there be a forecast {date}
-
+GetClosedIntent are you closed
+GetClosedIntent is the diary godmother closed
+GetClosedIntent is the store closed
+GetClosedIntent is closed
+GetClosedIntent closed
 GetHoursIntent hours
 GetHoursIntent what are your hours
 GetHoursIntent what are the hours
@@ -109,8 +98,7 @@ GetHoursIntent when do you close
 GetHoursIntent when will you open
 GetHoursIntent when will you be opening
 GetHoursIntent when will the store be opening
-GetHoursIntent when will the store open 
-
+GetHoursIntent when will the store open
 GetLocationIntent where is the dairy godmother located
 GetLocationIntent where is store location located
 GetLocationIntent what is the location of the dairy godmother
@@ -124,9 +112,17 @@ GetLocationIntent where is the store located
 GetLocationIntent where is your location
 GetLocationIntent what is the stores location
 GetLocationIntent what is the location of the store
-
-
-
+GetAboutIntent who wrote this
+GetAboutIntent who wrote this app
+GetAboutIntent who wrote this application
+GetAboutIntent who is the author of this skill
+GetAboutIntent who is the author of this application
+GetAboutIntent who is the author of this app
+GetAboutIntent who is the author
+GetAboutIntent author
+GetAboutIntent who created this
+GetAboutIntent who created this app
+GetAboutIntent who created this application
 
 
 

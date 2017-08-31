@@ -129,8 +129,8 @@ def closed():
 
 @ask.intent('GetOpenDateIntent', convert={'date': 'date'})
 def open_date(date):
-    """The default intent to be triggered. Uses the title to search the GB API.
-    :param date: the date to search for the flavor of the day
+    """Checks if The Dairy Godmother is open or closed on a particular day.
+    :param date: the `datetime` date
     :returns: a `flask-ask.statement` result with the given template text
     """
 
@@ -160,8 +160,7 @@ def open_date(date):
 
 @ask.intent('GetHoursIntent')
 def hours():
-    """The default intent to be triggered. Uses the title to search the GB API.
-    :param date: the date to search for the flavor of the day
+    """Gives the operating hours of The Dairy Godmother
     :returns: a `flask-ask.statement` result with the given template text
     """
 
@@ -171,8 +170,7 @@ def hours():
 
 @ask.intent('GetLocationIntent')
 def location():
-    """The default intent to be triggered. Uses the title to search the GB API.
-    :param date: the date to search for the flavor of the day
+    """Gives the address of The Dairy Godmother
     :returns: a `flask-ask.statement` result with the given template text
     """
     location_text = render_template('location')
@@ -181,7 +179,7 @@ def location():
 
 @ask.intent('GetAboutIntent')
 def hours():
-    """Give the user information about the creator of this skill.
+    """Gives information about the creator of this alexa skill.
     :returns: a `flask-ask.statement` result with the given template text
     """
 
