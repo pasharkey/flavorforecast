@@ -9,8 +9,13 @@ GetSearchIntent flavor
 GetSearchIntent what is the flavor of the day
 GetSearchIntent for the flavor of the day
 GetSearchIntent flavor of the day
+GetSearchDateIntent what is the flavor forecast {date}
+GetSearchDateIntent what is the flavor forecast on {date}
 GetSearchDateIntent what is the flavor forecast for {date}
+GetSearchDateIntent what is the forecast {date}
+GetSearchDateIntent what is the forecast on {date}
 GetSearchDateIntent what is the forecast for {date}
+GetSearchDateIntent what is the flavor {date}
 GetSearchDateIntent what is the flavor for {date}
 GetSearchDateIntent what is the flavor on {date}
 GetSearchDateIntent for the forecast on {date}
@@ -34,6 +39,7 @@ GetSearchDateIntent what will the flavor forecast be on {date}
 GetSearchDateIntent what was the flavor of the day on {date}
 GetSearchDateIntent what was the flavor of the day for {date}
 GetSearchDateIntent what was the flavor forecast on {date}
+GetSearchDateIntent what was the flavor on {date}
 GetOpenIntent are you open
 GetOpenIntent is the dairy godmother open
 GetOpenIntent is the store open
